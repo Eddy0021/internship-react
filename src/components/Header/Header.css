@@ -1,0 +1,13 @@
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #ffffff;
+    padding: 0 1rem;
+}
+
+header .info-and-button {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
