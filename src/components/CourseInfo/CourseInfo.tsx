@@ -1,30 +1,49 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import './CourseInfo.css';
 
 import { CourseCardProps } from '../../Interfaces/ICourseCard';
 import Button from '../../common/Button/Button';
 
 import { handleDuration } from '../../helpers/getCoursesDuration';
+import { useParams, useNavigate } from 'react-router-dom';
 
-const CourseInfo: React.FC<{ course: CourseCardProps; authors: { id: string; name: string }[], onCourseSelect: (data: string | undefined) => void; }> = ({ course, authors, onCourseSelect }) => {
+const CourseInfo: React.FC<{ courses: CourseCardProps[]; authors: { id: string; name: string }[] }> = ({ courses, authors }) => {
+    const { courseId } = useParams<{ courseId: string }>();
+    const navigate = useNavigate();
+    const [selectedCourse, setSelectedCourse] = useState<CourseCardProps | null>(null);
+
+    useEffect(() => {
+        const course = courses.find(course => course.id === courseId);
+        if (course) {
+            setSelectedCourse(course);
+        } else {
+            setSelectedCourse(null);
+        }
+    }, [courseId, courses]); 
 
     const handleAuthors = (authors: { id: string; name: string }[]) => {
         const MAX_LENGTH = 30;
+        if (!selectedCourse) return '';
+
         let authorNames = authors
-            .filter(author => course.authors.includes(author.id))
-            .map(author => author.name) 
-            .join(', '); 
-    
+            .filter(author => selectedCourse.authors.includes(author.id))
+            .map(author => author.name)
+            .join(', ');
+
         if (authorNames.length > MAX_LENGTH) {
             authorNames = authorNames.substring(0, MAX_LENGTH) + '...';
         }
         return authorNames;
+    };
+
+    if (!selectedCourse) {
+        return <div>Loading...</div>;
     }
     
     return (
-        <>
+        <div className="selected-course">
             <div className="outter-title">
-                <h3>{ course.title }</h3>
+                <h3>{ selectedCourse.title }</h3>
             </div>
             <div className="card">
                 <div className="card-title">
@@ -32,14 +51,14 @@ const CourseInfo: React.FC<{ course: CourseCardProps; authors: { id: string; nam
                 </div>
                 <div className="card-info">
                     <div className="card-info-description">
-                        { course.description }
+                        { selectedCourse.description }
                     </div>
                     <span className='vertical-line'></span>
                     <div className="card-info-details single-card-info-details">
                         <div className="rows single-rows">
                             <div className="row">
                                 <b>ID:</b>
-                                { course.id }
+                                { selectedCourse.id }
                             </div>
                             <div className="row">
                                 <b>Authors:</b>
@@ -47,20 +66,20 @@ const CourseInfo: React.FC<{ course: CourseCardProps; authors: { id: string; nam
                             </div>
                             <div className="row">
                                 <b>Duration:</b>
-                                { handleDuration(course.duration) }
+                                { handleDuration(selectedCourse.duration) }
                             </div>
                             <div className="row">
                                 <b>Created:</b>
-                                { course.creationDate }
+                                { selectedCourse.creationDate }
                             </div>
                         </div>                
                     </div>
                 </div>
             </div>
             <div className="buttons single-buttons">
-                <Button name='BACK' onClick={() => onCourseSelect(undefined)}/>
+                <Button name='BACK' onClick={() => navigate('/courses')}/>
             </div>
-        </>       
+        </div>     
     )
 }
 

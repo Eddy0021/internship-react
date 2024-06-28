@@ -3,10 +3,3 @@
   height: 99vh;
   background: #f7f7f7;
 }
-
-.selected-course{
-  display: flex;
-  flex-flow: column;
-  align-items: center;
-  gap: 1rem;
-}

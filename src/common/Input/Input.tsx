@@ -4,6 +4,8 @@ interface InputProps {
     input: {
         type: string;
         placeholder: string;
+        required?: boolean;
+        width?: string;
     };
     textChanged: (data: string) => void;
 }
@@ -18,7 +20,14 @@ const Input: React.FC<InputProps> = ({ input, textChanged }) => {
     };
 
     return (
-        <input type={input.type} placeholder={input.placeholder} value={text} onChange={handleInputChange} />
+        <input 
+            type={input.type} 
+            style={{ width: input.width }}
+            placeholder={input.placeholder} 
+            required={input.required} 
+            value={text} 
+            onChange={handleInputChange} 
+            className='default-input' />
     );
 };
 

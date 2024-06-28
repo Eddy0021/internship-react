@@ -6,14 +6,15 @@ import { CourseCardProps } from '../../../../Interfaces/ICourseCard';
 import Button from '../../../../common/Button/Button';
 
 import { handleDuration } from '../../../../helpers/getCoursesDuration';
+import { useNavigate } from 'react-router-dom';
 
 interface courseCard {
     course: CourseCardProps,
     mockedAuthorsList: { id: string; name: string }[];
-    onCourseSelect: (data: string) => void;
 }
 
-const CourseCard: React.FC<courseCard> = ({ course, mockedAuthorsList, onCourseSelect }) => {
+const CourseCard: React.FC<courseCard> = ({ course, mockedAuthorsList }) => {
+    const navigate = useNavigate();
 
     const handleAuthors = (authors: string[]) => {
         const MAX_LENGTH = 30;
@@ -53,7 +54,7 @@ const CourseCard: React.FC<courseCard> = ({ course, mockedAuthorsList, onCourseS
                         </div>
                     </div>
                     <div className="buttons">
-                        <Button name='SHOW COURSE' onClick={() => onCourseSelect(course.id)} />
+                        <Button name='SHOW COURSE' onClick={() => navigate('/courses/'+course.id)} />
                     </div>
                 </div>
             </div>

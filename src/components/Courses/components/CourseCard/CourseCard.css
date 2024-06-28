@@ -17,6 +17,7 @@
 
 .card-info-description {
     width: 100%;
+    line-break: anywhere;
 }
 
 .card-info-details {
