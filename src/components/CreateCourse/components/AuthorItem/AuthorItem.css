@@ -1,0 +1,25 @@
+.authors-row{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+}
+
+.actions {
+    display: flex;
+    gap: 1rem;
+}
+
+.remove-Author:hover {
+    cursor: pointer;
+    color: red;
+}
+
+.add-author:hover {
+    cursor: pointer;
+    color: green;
+}
+
+.authors-row span {
+    font-weight: bold;
+}

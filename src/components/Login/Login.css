@@ -1,0 +1,23 @@
+.box-form,
+.box-form form {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.box-form {
+    border: 1px solid lightgray;
+    padding: 2rem;
+    height: unset !important;
+    width: unset !important;
+}
+
+.box-form form .input {
+    display: flex;
+    flex-flow: column;
+}
+
+.box-form form .input label {
+    font-weight: bold;
+}

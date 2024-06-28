@@ -1,0 +1,70 @@
+.box-form {
+    display: flex;
+    flex-flow: column;
+    width: 80rem;
+    height: 40rem;
+    align-items: start;
+    gap: unset;
+}
+
+.box-form .input {
+    display: flex;
+    flex-flow: column;
+}
+
+.box-form .input label{
+    font-weight: bold;
+}
+
+.box-form .duration .input-bottom { 
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+.left-top{ 
+    display: flex;
+    flex-flow: row;
+    align-items: end;
+    gap: 1rem;
+}
+
+.box-form .authors{
+    display: flex;
+    justify-content: space-between;
+    width: 80%;
+}
+
+.box-form .authors .left-bottom h4 {
+    margin-bottom: unset;
+}
+
+.box{
+    height: 90%;
+}
+
+.box .buttons {
+    width: 70%;
+    display: flex;
+    justify-content: end;
+    gap: 1rem;
+}
+
+.box h1 { 
+    width: 70%;
+}
+
+.box-from h1,h2,h3,h4,h5,h6 {
+    margin: 0.5rem 0 0.5rem 0;
+}
+
+.authors-list-db {
+    overflow: auto;
+    height: 9rem;
+    width: 15rem;
+}
+
+.authors-list-selected {
+    overflow: auto;
+    height: 15rem;
+}

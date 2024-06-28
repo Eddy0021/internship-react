@@ -22,3 +22,10 @@
 .vertical-line{
     border-right: 1px solid black;
 }
+
+.selected-course{
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    gap: 1rem;
+  }

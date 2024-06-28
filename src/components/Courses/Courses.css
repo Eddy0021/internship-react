@@ -11,4 +11,6 @@
     align-items: center;
     gap: 1rem;
     padding-top: 2rem;
+    overflow: auto;
+    height: 43rem;
 }
