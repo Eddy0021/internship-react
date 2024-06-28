@@ -1,0 +1,11 @@
+button {
+    width: fit-content;
+    height: 3.5rem;
+    background: #007298 !important;
+    color: white;
+    text-decoration: none;
+}
+
+button:focus{
+    outline: none;
+}

@@ -1,0 +1,14 @@
+.courses-actions{
+    display: flex;
+    justify-content: center;
+    padding: 5rem 0rem 0 0rem;
+    gap: 30rem;
+}
+
+.courses-lists{
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    gap: 1rem;
+    padding-top: 2rem;
+}
